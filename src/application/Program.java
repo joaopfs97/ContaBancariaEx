@@ -10,28 +10,30 @@ public class Program {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
         
+        Account ac;
         System.out.print("Enter account number: ");
         int accountNumber = sc.nextInt();
-        
+        sc.nextLine();
         System.out.print("Enter account holder: ");
-        String name = sc.next();
-    
+        String name = sc.nextLine();  
         System.out.print("Is there an initial deposit (y/n)?: ");
-        String isDeposit = sc.next();
+        String isDeposit = sc.nextLine();
        
-        double balance = 0;
+        
         if(isDeposit.equals("y")){
             System.out.print("Enter initial deposit value: ");
-            balance = sc.nextDouble();
-        } 
-        
-        Account ac = new Account(name, accountNumber, balance);      
+            double initialDeposit = sc.nextDouble();
+            ac = new Account(name, accountNumber, initialDeposit);
+        }
+        else{
+            ac = new Account(name, accountNumber);
+        }
         
         System.out.println("Account data: ");
         System.out.println(ac);
         
         System.out.print("Enter a deposit value: ");
-        balance = sc.nextDouble();
+        double balance = sc.nextDouble();
         ac.deposit(balance);
         
         System.out.println("Updated account data: ");

@@ -5,10 +5,10 @@ public class Account {
     private int accountNumber;
     private double balance;
     
-    public Account(String name,int accountNumber, double balance){
+    public Account(String name,int accountNumber, double initialDeposit){
         this.name = name;
         this.accountNumber = accountNumber;
-        this.balance = balance;
+        deposit(initialDeposit);
     }
     
     public Account(String name,int accountNumber){
